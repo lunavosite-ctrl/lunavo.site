@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Lunavo | Digital Leaders</title>
+
+    <meta name="description"
+        content="Premium website development and video editing agency from Pune.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #020617;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .grain {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .custom-gradient {
+            background: linear-gradient(135deg,#d9f99d 0%,#84cc16 100%);
+        }
+    </style>
+</head>
+
+<body class="text-white selection:bg-lime-300 selection:text-black">
+
+    <div class="grain"></div>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/917058252051"
+        target="_blank"
+        class="fixed bottom-6 right-6 z-[60] bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="white"
+            viewBox="0 0 24 24">
+
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 
+            5.338-11.891 11.893-11.891 3.181.001 
+            6.167 1.24 8.413 3.488 2.245 2.248 
+            3.481 5.236 3.48 8.414-.003 
+            6.557-5.338 11.892-11.893 
+            11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 
+            1.654z"/>
+        </svg>
+    </a>
+
+    <!-- NAVBAR -->
+    <nav class="max-w-7xl mx-auto flex justify-between items-center p-6 md:p-10 relative z-10">
+
+        <div class="text-3xl font-bold tracking-tight">
+            LUNAVO<span class="text-lime-400">.</span>
+        </div>
+
+        <div class="hidden md:flex gap-8 uppercase text-xs tracking-[0.25em] text-slate-300">
+            <a href="#portfolio" class="hover:text-lime-400 transition">Portfolio</a>
+            <a href="#about" class="hover:text-lime-400 transition">About</a>
+            <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
+            <a href="#resume" class="hover:text-lime-400 transition">Resume</a>
+            <a href="#contact" class="hover:text-lime-400 transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+
+        <div class="absolute w-[500px] h-[500px] bg-lime-400/10 blur-[120px] rounded-full"></div>
+
+        <h1 class="text-6xl md:text-9xl font-bold leading-[0.9] tracking-tighter mb-8 relative z-10">
+            DIGITAL <br>
+            <span class="text-transparent bg-clip-text custom-gradient">
+                LEADERS.
+            </span>
+        </h1>
+
+        <p class="text-slate-400 max-w-2xl text-lg mb-10">
+            Premium websites and cinematic digital experiences
+            for truly growing brands, creators and startups.
+        </p>
+
+        <div class="flex gap-4">
+            <a href="https://wa.me/917058252051"
+                class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-lime-400 transition">
+
+                Start Project
+            </a>
+        </div>
+
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-32 px-6 max-w-7xl mx-auto">
+
+        <p class="uppercase tracking-[0.4em] text-xs text-lime-400 mb-8">
+            Selected Work
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <div class="group cursor-pointer">
+                <div class="aspect-video rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 mb-5">
+                    <div class="w-full h-full bg-gradient-to-br from-slate-800 to-black group-hover:scale-105 transition duration-500"></div>
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Shreezenn Tutorials
+                </h3>
+
+                <p class="text-slate-500">
+                    Educational Website Development
+                </p>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="aspect-video rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 mb-5">
+                    <div class="w-full h-full bg-gradient-to-tr from-slate-800 to-black group-hover:scale-105 transition duration-500"></div>
+                </div>
+
+                <h3 class="text-2xl font-bold">
+                    Brand Content Editing
+                </h3>
+
+                <p class="text-slate-500">
+                    Reels / Shorts / Promotional Content
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-32 px-6 bg-slate-950/50">
+
+        <div class="max-w-4xl mx-auto text-center">
+
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
+                Small Team.
+                <span class="text-lime-400">
+                    Massive Impact.
+                </span>
+            </h2>
+
+            <p class="text-slate-400 text-lg md:text-xl leading-relaxed">
+                Based in Pune, Lunavo is a boutique digital agency specialising in
+                website development, video editing and modern branding systems.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="py-32 px-6 max-w-7xl mx-auto">
+
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold tracking-tighter">
+                Pricing
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="glass p-8 rounded-3xl">
+                <h3 class="text-lime-400 font-bold mb-4">Starter</h3>
+
+                <div class="text-5xl font-bold mb-6">
+                    ₹4,999
+                </div>
+
+                <ul class="space-y-4 text-slate-400">
+                    <li>• 1–2 Pages</li>
+                    <li>• Mobile Responsive</li>
+                    <li>• Contact Form</li>
+                </ul>
+            </div>
+
+            <div class="glass p-8 rounded-3xl border border-lime-400/20 scale-105">
+                <h3 class="text-lime-400 font-bold mb-4">Business</h3>
+
+                <div class="text-5xl font-bold mb-6">
+                    ₹7,999
+                </div>
+
+                <ul class="space-y-4 text-slate-400">
+                    <li>• 3–5 Pages</li>
+                    <li>• Portfolio & Services</li>
+                    <li>• Premium UI</li>
+                </ul>
+            </div>
+
+            <div class="glass p-8 rounded-3xl">
+                <h3 class="text-lime-400 font-bold mb-4">Premium</h3>
+
+                <div class="text-5xl font-bold mb-6">
+                    ₹11,999
+                </div>
+
+                <ul class="space-y-4 text-slate-400">
+                    <li>• Advanced Features</li>
+                    <li>• Animations</li>
+                    <li>• Custom Development</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume"
+        class="py-32 px-6 bg-slate-950/50 border-t border-slate-900">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20">
+
+                <p class="uppercase tracking-[0.4em] text-xs text-lime-400 mb-4">
+                    About Lunavo
+                </p>
+
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
+                    Building Digital Presence
+                    <span class="text-lime-400">
+                        That Delivers Results.
+                    </span>
+                </h2>
+
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                    LUNAVO is a Pune-based digital agency founded on
+                    12 March 2026 specialising in premium websites,
+                    creative video editing and digital branding.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact"
+        class="py-32 px-6 border-t border-slate-900 bg-[#020617]">
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT SIDE -->
+            <div>
+
+                <p class="uppercase tracking-[0.4em] text-xs text-lime-400 mb-4">
+                    Contact Us
+                </p>
+
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-8">
+                    Let's Build Something
+                    <span class="text-lime-400">
+                        Massive.
+                    </span>
+                </h2>
+
+                <p class="text-slate-400 text-lg leading-relaxed max-w-xl mb-12">
+                    Need a premium website or high-converting digital content?
+                    Let's create your next digital presence.
+                </p>
+
+                <div class="space-y-8">
+
+                    <div>
+                        <p class="text-slate-500 text-sm mb-2">
+                            Phone / WhatsApp
+                        </p>
+
+                        <a href="tel:+917058252051"
+                            class="text-2xl font-bold hover:text-lime-400 transition">
+
+                            +91 7058252051
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="text-slate-500 text-sm mb-2">
+                            Email
+                        </p>
+
+                        <a href="mailto:lunavo.site@gmail.com"
+                            class="text-2xl font-bold hover:text-lime-400 transition">
+
+                            lunavo.site@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="glass rounded-[35px] p-10">
+
+                <form class="space-y-6">
+
+                    <!-- NAME -->
+                    <div>
+                        <label class="block text-sm text-slate-300 mb-2">
+                            Full Name
+                            <span class="text-red-500">*</span>
+                        </label>
+
+                        <input 
+                            id="name"
+                            type="text"
+                            required
+                            placeholder="Enter your name"
+
+                            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('phone').focus();}"
+
+                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
+                    </div>
+
+                    <!-- PHONE -->
+                    <div>
+                        <label class="block text-sm text-slate-300 mb-2">
+                            Phone Number
+                            <span class="text-red-500">*</span>
+                        </label>
+
+                        <input 
+                            id="phone"
+                            type="tel"
+                            required
+                            placeholder="Enter your phone number"
+
+                            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('email').focus();}"
+
+                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div>
+                        <label class="block text-sm text-slate-300 mb-2">
+                            Email Address
+                            <span class="text-red-500">*</span>
+                        </label>
+
+                        <input 
+                            id="email"
+                            type="email"
+                            required
+                            placeholder="Enter your email"
+
+                            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('project').focus();}"
+
+                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
+                    </div>
+
+                    <!-- PROJECT -->
+                    <div>
+                        <label class="block text-sm text-slate-300 mb-2">
+                            Project Details
+                        </label>
+
+                        <textarea 
+                            id="project"
+                            rows="5"
+                            placeholder="Tell us about your project"
+
+                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition"></textarea>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button 
+                        type="submit"
+                        class="w-full bg-lime-400 text-black py-5 rounded-2xl font-bold hover:scale-[1.02] transition">
+
+                        Send Inquiry
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 py-16 px-6 bg-black">
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+
+            <div>
+                <div class="text-3xl font-bold tracking-tight mb-2">
+                    LUNAVO<span class="text-lime-400">.</span>
+                </div>
+
+                <p class="text-slate-500 text-sm">
+                    Building premium digital experiences from Pune.
+                </p>
+            </div>
+
+            <div class="flex gap-8 text-sm text-slate-400">
+                <a href="#portfolio" class="hover:text-lime-400 transition">Portfolio</a>
+                <a href="#about" class="hover:text-lime-400 transition">About</a>
+                <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
+                <a href="#contact" class="hover:text-lime-400 transition">Contact</a>
+            </div>
+
+            <div class="text-sm text-slate-500">
+                © 2026 Lunavo. All Rights Reserved.
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

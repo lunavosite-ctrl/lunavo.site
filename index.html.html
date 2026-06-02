@@ -310,74 +310,96 @@
                 </div>
             </div>
 
-            <!-- FORM -->
-            <div class="glass rounded-[35px] p-10">
+<form 
+    action="https://api.web3forms.com/submit" 
+    method="POST"
+    class="space-y-6">
 
-                <form class="space-y-6">
+    <input 
+        type="hidden" 
+        name="access_key" 
+        value="3664be00-c882-494a-bd16-ed508473dedf">
 
-                    <!-- NAME -->
-                    <div>
-                        <label class="block text-sm text-slate-300 mb
-                    <!-- PHONE -->
-                    <div>
-                        <label class="block text-sm text-slate-300 mb-2">
-                            Phone Number
-                            <span class="text-red-500">*</span>
-                        </label>
+    <input 
+        type="hidden" 
+        name="subject" 
+        value="New Lunavo Website Inquiry">
 
-                        <input 
-                            id="phone"
-                            type="tel"
-                            required
-                            placeholder="Enter your phone number"
+    <!-- NAME -->
+    <div>
+        <label class="block text-sm text-slate-300 mb-2">
+            Full Name
+            <span class="text-red-500">*</span>
+        </label>
 
-                            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('email').focus();}"
+        <input 
+            id="name"
+            type="text"
+            name="name"
+            required
+            placeholder="Enter your name"
+            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('phone').focus();}"
+            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
+    </div>
 
-                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
-                    </div>
+    <!-- PHONE -->
+    <div>
+        <label class="block text-sm text-slate-300 mb-2">
+            Phone Number
+            <span class="text-red-500">*</span>
+        </label>
 
-                    <!-- EMAIL -->
-                    <div>
-                        <label class="block text-sm text-slate-300 mb-2">
-                            Email Address
-                            <span class="text-red-500">*</span>
-                        </label>
+        <input 
+            id="phone"
+            type="tel"
+            name="phone"
+            required
+            placeholder="Enter your phone number"
+            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('email').focus();}"
+            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
+    </div>
 
-                        <input 
-                            id="email"
-                            type="email"
-                            required
-                            placeholder="Enter your email"
+    <!-- EMAIL -->
+    <div>
+        <label class="block text-sm text-slate-300 mb-2">
+            Email Address
+            <span class="text-red-500">*</span>
+        </label>
 
-                            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('project').focus();}"
+        <input 
+            id="email"
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('project').focus();}"
+            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
+    </div>
 
-                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
-                    </div>
+    <!-- MESSAGE -->
+    <div>
+        <label class="block text-sm text-slate-300 mb-2">
+            Project Details
+        </label>
 
-                    <!-- PROJECT -->
-                    <div>
-                        <label class="block text-sm text-slate-300 mb-2">
-                            Project Details
-                        </label>
+        <textarea 
+            id="project"
+            rows="5"
+            name="message"
+            required
+            placeholder="Tell us about your project"
+            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition"></textarea>
+    </div>
 
-                        <textarea 
-                            id="project"
-                            rows="5"
-                            placeholder="Tell us about your project"
+    <!-- BUTTON -->
+    <button 
+        type="submit"
+        class="w-full bg-lime-400 text-black py-5 rounded-2xl font-bold hover:scale-[1.02] transition">
 
-                            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition"></textarea>
-                    </div>
+        Send Inquiry
+    </button>
 
-                    <!-- BUTTON -->
-                    <button 
-                        type="submit"
-                        class="w-full bg-lime-400 text-black py-5 rounded-2xl font-bold hover:scale-[1.02] transition">
-
-                        Send Inquiry
-                    </button>
-
-                </form>
-
+</form>
             </div>
 
         </div>

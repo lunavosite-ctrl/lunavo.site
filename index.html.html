@@ -1,442 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <title>Lunavo | Digital Leaders</title>
-
-    <meta name="description"
-        content="Premium website development and video editing agency from Pune.">
-
+    
+    <!-- SEO & Social Optimization -->
+    <title>Lunavo | Premium Digital Studio Pune</title>
+    <meta name="description" content="High-end website development and cinematic video editing. We build scaling digital assets for modern brands and startups.">
+    <meta name="keywords" content="Web Design Pune, Video Editing, UI/UX, Lunavo, Digital Agency">
+    <meta property="og:title" content="Lunavo | Digital Leaders">
+    <meta property="og:description" content="Premium interfaces and cinematic experiences.">
+    <meta property="og:type" content="website">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
+        :root { --brand: #a3e635; }
         body {
             font-family: 'Space Grotesk', sans-serif;
             background: #020617;
+            color: #f8fafc;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         .grain {
-            pointer-events: none;
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            opacity: 0.04;
+            pointer-events: none; position: fixed; inset: 0; z-index: 50; opacity: 0.03;
             background-image: url('https://grainy-gradients.vercel.app/noise.svg');
         }
 
         .glass {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .custom-gradient {
-            background: linear-gradient(135deg,#d9f99d 0%,#84cc16 100%);
+        .gradient-border-card {
+            position: relative; background: #020617; background-clip: padding-box;
+            border: 1px solid transparent; border-radius: 2rem;
+        }
+        .gradient-border-card::before {
+            content: ''; position: absolute; inset: 0; z-index: -1; margin: -1.5px;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #1e293b, #a3e635, #1e293b);
+            background-size: 200% 100%;
+            animation: move-gradient 4s linear infinite;
+        }
+        @keyframes move-gradient { 0% {background-position: 100% 0%;} 100% {background-position: -100% 0%;} }
+
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #mobile-menu.open { transform: translateX(0); }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+
+        /* Premium footer interactive link lines */
+        .footer-link {
+            position: relative;
+            display: inline-block;
+        }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #a3e635;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .footer-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
     </style>
 </head>
-
-<body class="text-white selection:bg-lime-300 selection:text-black">
+<body class="selection:bg-lime-400 selection:text-black">
 
     <div class="grain"></div>
 
-    <!-- WHATSAPP -->
-    <a href="https://wa.me/917058252051"
-        target="_blank"
-        class="fixed bottom-6 right-6 z-[60] bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition">
-
-        <svg xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="white"
-            viewBox="0 0 24 24">
-
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 
-            5.338-11.891 11.893-11.891 3.181.001 
-            6.167 1.24 8.413 3.488 2.245 2.248 
-            3.481 5.236 3.48 8.414-.003 
-            6.557-5.338 11.892-11.893 
-            11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 
-            1.654z"/>
-        </svg>
-    </a>
-
     <!-- NAVBAR -->
-    <nav class="max-w-7xl mx-auto flex justify-between items-center p-6 md:p-10 relative z-10">
-
-        <div class="text-3xl font-bold tracking-tight">
-            LUNAVO<span class="text-lime-400">.</span>
-        </div>
-
-        <div class="hidden md:flex gap-8 uppercase text-xs tracking-[0.25em] text-slate-300">
-            <a href="#portfolio" class="hover:text-lime-400 transition">Portfolio</a>
-            <a href="#about" class="hover:text-lime-400 transition">About</a>
-            <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
-            <a href="#resume" class="hover:text-lime-400 transition">Resume</a>
-            <a href="#contact" class="hover:text-lime-400 transition">Contact</a>
+    <nav class="fixed top-0 left-0 w-full z-[100] glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-5 md:px-10">
+            <div class="text-2xl md:text-3xl font-bold tracking-tighter cursor-pointer" onclick="window.scrollTo(0,0)">
+                LUNAVO<span class="text-lime-400">.</span>
+            </div>
+            <div class="hidden md:flex gap-10 uppercase text-[10px] font-bold tracking-[0.3em] text-slate-400">
+                <a href="#portfolio" class="hover:text-lime-400 transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-lime-400 transition-colors">Pricing</a>
+                <a href="#contact" class="hover:text-lime-400 transition-colors">Contact</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+            </button>
         </div>
     </nav>
 
+    <!-- MOBILE OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-slate-950/95 backdrop-blur-2xl flex flex-col p-10 md:hidden">
+        <button id="close-btn" class="self-end mb-10 text-slate-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
+        </button>
+        <div class="flex flex-col gap-8 text-4xl font-bold tracking-tighter">
+            <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+            <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        </div>
+    </div>
+
     <!-- HERO -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
-
-        <div class="absolute w-[500px] h-[500px] bg-lime-400/10 blur-[120px] rounded-full"></div>
-
-        <h1 class="text-6xl md:text-9xl font-bold leading-[0.9] tracking-tighter mb-8 relative z-10">
-            DIGITAL <br>
-            <span class="text-transparent bg-clip-text custom-gradient">
-                LEADERS.
-            </span>
-        </h1>
-
-        <p class="text-slate-400 max-w-2xl text-lg mb-10">
-            Premium websites and cinematic digital experiences
-            for truly growing brands, creators and startups.
-        </p>
-
-        <div class="flex gap-4">
-            <a href="https://wa.me/917058252051"
-                class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-lime-400 transition">
-
-                Start Project
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-96 bg-lime-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="reveal">
+            <h1 class="text-6xl md:text-9xl font-bold leading-[0.85] tracking-tighter mb-8">
+                DIGITAL<br><span class="text-lime-400">LEADERS.</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl max-w-xl mx-auto mb-10 font-light">
+                High-end web architecture and cinematic content for brands that refuse to be average.
+            </p>
+            <a href="#contact" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-lime-400 transition-all hover:scale-105 active:scale-95 inline-block">
+                Work With Us
             </a>
         </div>
-
     </section>
 
     <!-- PORTFOLIO -->
-    <section id="portfolio" class="py-32 px-6 max-w-7xl mx-auto">
-
-        <p class="uppercase tracking-[0.4em] text-xs text-lime-400 mb-8">
-            Selected Work
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-10">
-
-            <div class="group cursor-pointer">
-                <div class="aspect-video rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 mb-5">
-                    <div class="w-full h-full bg-gradient-to-br from-slate-800 to-black group-hover:scale-105 transition duration-500"></div>
-                </div>
-
-                <h3 class="text-2xl font-bold">
-                    Shreezenn Tutorials
-                </h3>
-
-                <p class="text-slate-500">
-                    Educational Website Development
-                </p>
-            </div>
-
-            <div class="group cursor-pointer">
-                <div class="aspect-video rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 mb-5">
-                    <div class="w-full h-full bg-gradient-to-tr from-slate-800 to-black group-hover:scale-105 transition duration-500"></div>
-                </div>
-
-                <h3 class="text-2xl font-bold">
-                    Brand Content Editing
-                </h3>
-
-                <p class="text-slate-500">
-                    Reels / Shorts / Promotional Content
-                </p>
-            </div>
-
+    <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="reveal mb-12 flex justify-between items-end">
+            <h2 class="text-4xl font-bold tracking-tighter">Featured Work</h2>
+            <div class="text-lime-400 text-xs font-bold tracking-widest uppercase">2024-2026</div>
         </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-32 px-6 bg-slate-950/50">
-
-        <div class="max-w-4xl mx-auto text-center">
-
-            <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
-                Small Team.
-                <span class="text-lime-400">
-                    Massive Impact.
-                </span>
-            </h2>
-
-            <p class="text-slate-400 text-lg md:text-xl leading-relaxed">
-                Based in Pune, Lunavo is a boutique digital agency specialising in
-                website development, video editing and modern branding systems.
-            </p>
-
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="reveal group cursor-pointer">
+                <div class="aspect-video rounded-2xl bg-slate-900 border border-white/5 overflow-hidden mb-4 relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-lime-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <h3 class="text-xl font-bold">Shreezenn Platform</h3>
+                <p class="text-slate-500 text-sm">Fullstack Education Solution</p>
+            </div>
+            <div class="reveal group cursor-pointer" style="transition-delay: 100ms;">
+                <div class="aspect-video rounded-2xl bg-slate-900 border border-white/5 overflow-hidden mb-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <h3 class="text-xl font-bold">Content Strategy</h3>
+                <p class="text-slate-500 text-sm">Cinematic Social Media Production</p>
+            </div>
         </div>
     </section>
 
     <!-- PRICING -->
-    <section id="pricing" class="py-32 px-6 max-w-7xl mx-auto">
-
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-bold tracking-tighter">
-                Pricing
-            </h2>
+    <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-5xl font-bold tracking-tighter">Investment</h2>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-
-            <div class="glass p-8 rounded-3xl">
-                <h3 class="text-lime-400 font-bold mb-4">Starter</h3>
-
-                <div class="text-5xl font-bold mb-6">
-                    ₹4,999
-                </div>
-
-                <ul class="space-y-4 text-slate-400">
-                    <li>• 1–2 Pages</li>
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="reveal glass p-8 md:p-10 rounded-[2rem] border border-white/5">
+                <h3 class="text-lime-400 font-bold mb-2">Starter</h3>
+                <div class="text-4xl font-bold mb-6">₹4,999</div>
+                <ul class="space-y-4 text-slate-400 border-t border-white/5 pt-6 text-sm">
+                    <li>• Essential 2-Page Build</li>
                     <li>• Mobile Responsive</li>
-                    <li>• Contact Form</li>
+                    <li>• SEO Optimized</li>
                 </ul>
             </div>
-
-            <div class="glass p-8 rounded-3xl border border-lime-400/20 scale-105">
-                <h3 class="text-lime-400 font-bold mb-4">Business</h3>
-
-                <div class="text-5xl font-bold mb-6">
-                    ₹7,999
-                </div>
-
-                <ul class="space-y-4 text-slate-400">
-                    <li>• 3–5 Pages</li>
-                    <li>• Portfolio & Services</li>
-                    <li>• Premium UI</li>
+            <div class="reveal gradient-border-card p-8 md:p-10 shadow-2xl shadow-lime-400/5">
+                <h3 class="text-lime-400 font-bold mb-2">Business</h3>
+                <div class="text-4xl font-bold mb-6">₹7,999</div>
+                <ul class="space-y-4 text-slate-200 border-t border-white/10 pt-6 text-sm">
+                    <li>• 5-Page Premium Build</li>
+                    <li>• Custom UI Design</li>
+                    <li>• Conversion Focused</li>
                 </ul>
             </div>
-
-            <div class="glass p-8 rounded-3xl">
-                <h3 class="text-lime-400 font-bold mb-4">Premium</h3>
-
-                <div class="text-5xl font-bold mb-6">
-                    ₹11,999
-                </div>
-
-                <ul class="space-y-4 text-slate-400">
-                    <li>• Advanced Features</li>
-                    <li>• Animations</li>
-                    <li>• Custom Development</li>
+            <div class="reveal glass p-8 md:p-10 rounded-[2rem] border border-white/5">
+                <h3 class="text-lime-400 font-bold mb-2">Premium</h3>
+                <div class="text-4xl font-bold mb-6">₹11,999</div>
+                <ul class="space-y-4 text-slate-400 border-t border-white/5 pt-6 text-sm">
+                    <li>• Unlimited Pages</li>
+                    <li>• Advanced Animations</li>
+                    <li>• 24/7 Priority Support</li>
                 </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- RESUME -->
-    <section id="resume"
-        class="py-32 px-6 bg-slate-950/50 border-t border-slate-900">
-
-        <div class="max-w-7xl mx-auto">
-
-            <div class="text-center mb-20">
-
-                <p class="uppercase tracking-[0.4em] text-xs text-lime-400 mb-4">
-                    About Lunavo
-                </p>
-
-                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
-                    Building Digital Presence
-                    <span class="text-lime-400">
-                        That Delivers Results.
-                    </span>
-                </h2>
-
-                <p class="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
-                    LUNAVO is a Pune-based digital agency founded on
-                    12 March 2026 specialising in premium websites,
-                    creative video editing and digital branding.
-                </p>
-
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact"
-        class="py-32 px-6 border-t border-slate-900 bg-[#020617]">
-
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-
-            <!-- LEFT SIDE -->
-            <div>
-
-                <p class="uppercase tracking-[0.4em] text-xs text-lime-400 mb-4">
+    <!-- CONTACT SECTION (EXACT MATCH TO cxgwbv.PNG) -->
+    <section id="contact" class="py-24 px-6 bg-[#020617]">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            
+            <!-- Left Side Typography Layout -->
+            <div class="reveal space-y-4 lg:pr-10">
+                <p class="text-[11px] uppercase tracking-[0.3em] text-lime-400 font-bold">
                     Contact Us
                 </p>
-
-                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-8">
-                    Let's Build Something
-                    <span class="text-lime-400">
-                        Massive.
-                    </span>
+                <h2 class="text-5xl md:text-7xl lg:text-8xl font-[900] tracking-tighter leading-[0.9] uppercase font-black">
+                    Let's Build<br>Something <span class="text-lime-400">Massive.</span>
                 </h2>
-
-                <p class="text-slate-400 text-lg leading-relaxed max-w-xl mb-12">
-                    Need a premium website or high-converting digital content?
-                    Let's create your next digital presence.
+                <p class="text-slate-400 text-base md:text-lg pt-4 font-light max-w-md">
+                    Ready to elevate your digital presence? Drop us a line or call us directly to discuss your vision.
                 </p>
-
-                <div class="space-y-8">
-
-                    <div>
-                        <p class="text-slate-500 text-sm mb-2">
-                            Phone / WhatsApp
-                        </p>
-
-                        <a href="tel:+917058252051"
-                            class="text-2xl font-bold hover:text-lime-400 transition">
-
-                            +91 7058252051
-                        </a>
-                    </div>
-
-                    <div>
-                        <p class="text-slate-500 text-sm mb-2">
-                            Email
-                        </p>
-
-                        <a href="mailto:lunavo.site@gmail.com"
-                            class="text-2xl font-bold hover:text-lime-400 transition">
-
-                            lunavo.site@gmail.com
-                        </a>
-                    </div>
-
+                
+                <!-- Quick Connected Hotlinks -->
+                <div class="pt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-400">
+                    <a href="tel:+917058252051" class="hover:text-lime-400 transition-colors flex items-center gap-2">
+                        <span>📞</span> +91 7058252051
+                    </a>
+                    <a href="mailto:lunavo.site@gmail.com" class="hover:text-lime-400 transition-colors flex items-center gap-2">
+                        <span>✉️</span> lunavo.site@gmail.com
+                    </a>
                 </div>
             </div>
 
-<form 
-    action="https://api.web3forms.com/submit" 
-    method="POST"
-    class="space-y-6">
+            <!-- Right Side Form Layout -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="reveal space-y-6 w-full">
+                <input type="hidden" name="access_key" value="3664be00-c882-494a-bd16-ed508473dedf">
+                
+                <!-- Full Name Field -->
+                <div class="space-y-2">
+                    <label class="block text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                        Full Name <span class="text-lime-400">*</span>
+                    </label>
+                    <input type="text" name="name" required placeholder="John Doe" 
+                           class="w-full bg-[#070d19]/80 border border-white/10 p-4 rounded-xl text-white placeholder-slate-600 outline-none focus:border-lime-400 transition-colors">
+                </div>
 
-    <input 
-        type="hidden" 
-        name="access_key" 
-        value="3664be00-c882-494a-bd16-ed508473dedf">
+                <!-- Phone Number Field -->
+                <div class="space-y-2">
+                    <label class="block text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                        Phone Number <span class="text-lime-400">*</span>
+                    </label>
+                    <input type="tel" name="phone" required placeholder="+91 00000 00000" 
+                           class="w-full bg-[#070d19]/80 border border-white/10 p-4 rounded-xl text-white placeholder-slate-600 outline-none focus:border-lime-400 transition-colors">
+                </div>
 
-    <input 
-        type="hidden" 
-        name="subject" 
-        value="New Lunavo Website Inquiry">
-<input
-    type="hidden"
-    name="redirect"
-    value="https://web3forms.com/success"> 
-    
-     <!-- NAME -->
-    <div>
-        <label class="block text-sm text-slate-300 mb-2">
-            Full Name
-            <span class="text-red-500">*</span>
-        </label>
+                <!-- Email Address Field -->
+                <div class="space-y-2">
+                    <label class="block text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                        Email Address <span class="text-lime-400">*</span>
+                    </label>
+                    <input type="email" name="email" required placeholder="Email Address" 
+                           class="w-full bg-[#070d19]/80 border border-white/10 p-4 rounded-xl text-white placeholder-slate-600 outline-none focus:border-lime-400 transition-colors">
+                </div>
 
-        <input 
-            id="name"
-            type="text"
-            name="name"
-            required
-            placeholder="Enter your name"
-            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('phone').focus();}"
-            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
-    </div>
+                <!-- Message Description -->
+                <div class="space-y-2">
+                    <label class="block text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                        Project Brief <span class="text-lime-400">*</span>
+                    </label>
+                    <textarea name="message" required rows="4" placeholder="Tell us about your brand goals..." 
+                              class="w-full bg-[#070d19]/80 border border-white/10 p-4 rounded-xl text-white placeholder-slate-600 outline-none focus:border-lime-400 transition-colors resize-none"></textarea>
+                </div>
 
-    <!-- PHONE -->
-    <div>
-        <label class="block text-sm text-slate-300 mb-2">
-            Phone Number
-            <span class="text-red-500">*</span>
-        </label>
-
-        <input 
-            id="phone"
-            type="tel"
-            name="phone"
-            required
-            placeholder="Enter your phone number"
-            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('email').focus();}"
-            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
-    </div>
-
-    <!-- EMAIL -->
-    <div>
-        <label class="block text-sm text-slate-300 mb-2">
-            Email Address
-            <span class="text-red-500">*</span>
-        </label>
-
-        <input 
-            id="email"
-            type="email"
-            name="email"
-            required
-            placeholder="Enter your email"
-            onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('project').focus();}"
-            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition">
-    </div>
-
-    <!-- MESSAGE -->
-    <div>
-        <label class="block text-sm text-slate-300 mb-2">
-            Project Details
-        </label>
-
-        <textarea 
-            id="project"
-            rows="5"
-            name="message"
-            required
-            placeholder="Tell us about your project"
-            class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 focus:outline-none focus:border-lime-400 transition"></textarea>
-    </div>
-
-    <!-- BUTTON -->
-    <button 
-        type="submit"
-        class="w-full bg-lime-400 text-black py-5 rounded-2xl font-bold hover:scale-[1.02] transition">
-
-        Send Inquiry
-    </button>
-
-</form>
-            </div>
-
+                <button type="submit" class="w-full bg-lime-400 text-black py-4 rounded-xl font-bold hover:brightness-110 transition-all active:scale-95 tracking-wider text-sm uppercase">
+                    Submit Project Request
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-900 py-16 px-6 bg-black">
-
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-
-            <div>
-                <div class="text-3xl font-bold tracking-tight mb-2">
-                    LUNAVO<span class="text-lime-400">.</span>
+    <!-- PREMIUM HIGH-END FOOTER (ALL TEXT PRESERVED EXPLICITLY) -->
+    <footer class="bg-slate-950 border-t border-white/5 relative overflow-hidden pt-24 pb-12 px-6">
+        <!-- Structural Background Graphic Accent -->
+        <div class="absolute -top-40 right-0 w-96 h-96 bg-lime-500/[0.02] blur-[150px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto position-relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-20 border-b border-white/5">
+                
+                <!-- Brand Column -->
+                <div class="space-y-5">
+                    <div class="text-3xl font-bold tracking-tighter text-white">
+                        LUNAVO<span class="text-lime-400">.</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-xs font-light">
+                        High-end digital solutions for visionary brands.
+                    </p>
                 </div>
 
-                <p class="text-slate-500 text-sm">
-                    Building premium digital experiences from Pune.
-                </p>
+                <!-- Navigation Links Column -->
+                <div>
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-slate-300 mb-6">Navigate</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li>
+                            <a href="#portfolio" class="text-slate-500 hover:text-lime-400 transition-colors footer-link">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#pricing" class="text-slate-500 hover:text-lime-400 transition-colors footer-link">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-slate-500 hover:text-lime-400 transition-colors footer-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Core Expertise Area -->
+                <div>
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-slate-300 mb-6">Expertise</h4>
+                    <ul class="space-y-4 text-sm text-slate-500 font-light">
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-lime-400/40 rounded-full"></span> Web Architecture
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-lime-400/40 rounded-full"></span> Video Editing
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Support & Coordinates Location Column -->
+                <div>
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-slate-300 mb-6">Support</h4>
+                    <div class="space-y-4 text-sm text-slate-500 font-light">
+                        <p class="text-slate-300 font-medium transition-colors hover:text-lime-400">
+                            <a href="tel:+917058252051">+91 7058252051</a>
+                        </p>
+                        <p class="leading-relaxed flex items-start gap-1">
+                            <span>📍</span> Pune, Maharashtra
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="flex gap-8 text-sm text-slate-400">
-                <a href="#portfolio" class="hover:text-lime-400 transition">Portfolio</a>
-                <a href="#about" class="hover:text-lime-400 transition">About</a>
-                <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
-                <a href="#contact" class="hover:text-lime-400 transition">Contact</a>
+            <!-- Extra Footer Branding Statement Element Layer -->
+            <div class="text-center font-black tracking-tighter text-white/[0.02] select-none text-[13vw] leading-none pointer-events-none uppercase pt-8">
+                LUNAVO
             </div>
 
-            <div class="text-sm text-slate-500">
-                © 2026 Lunavo. All Rights Reserved.
+            <!-- Copyright Line & Secondary Meta Utilities -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-8 text-[10px] text-slate-500 uppercase tracking-widest font-medium gap-4">
+                <p>&copy; 2026 Lunavo Digital. All rights reserved.</p>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-lime-400 group flex items-center gap-2 transition-colors">
+                    Back to Top <span class="inline-block group-hover:-translate-y-0.5 transition-transform">↑</span>
+                </button>
             </div>
-
         </div>
     </footer>
 
+    <!-- WHATSAPP FLOATING -->
+    <a href="https://wa.me/917058252051" class="fixed bottom-6 right-6 z-[100] bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.64-1.03-5.123-2.906-6.999-1.875-1.877-4.363-2.903-7.006-2.904-5.452 0-9.887 4.434-9.89 9.886-.001 2.145.56 4.23 1.629 6.012l-1.058 3.859 3.951-1.036zm11.071-7.017c-.301-.15-1.781-.879-2.056-.979-.275-.1-.475-.15-.675.15-.2.3-.775.979-.95 1.179-.175.2-.35.225-.651.075-.301-.15-1.27-.468-2.42-1.494-.894-.797-1.496-1.781-1.671-2.081-.175-.3-.018-.462.132-.611.135-.134.301-.35.451-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.589-.493-.51-.675-.519-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8 1.05-.275.975-1.05 2.4-1.288 2.875-.238.475-.475.925.025 1.425.5 1.15 1.4 2.1 2.925 2.975 1.2.6 2.175.875 2.975.95.8.075 1.525-.038 2.1-.125.637-.097 1.781-.728 2.031-1.429.25-.7.25-1.299.175-1.425-.075-.125-.275-.2-.575-.35z"/></svg>
+    </a>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

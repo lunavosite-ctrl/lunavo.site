@@ -324,8 +324,12 @@
         type="hidden" 
         name="subject" 
         value="New Lunavo Website Inquiry">
-
-    <!-- NAME -->
+<input
+    type="hidden"
+    name="redirect"
+    value="https://web3forms.com/success"> 
+    
+     <!-- NAME -->
     <div>
         <label class="block text-sm text-slate-300 mb-2">
             Full Name
@@ -399,12 +403,6 @@
         Send Inquiry
     </button>
 
-<form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="3664be00-c882-494a-bd16-ed508473dedf">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit Form</button>
 </form>
             </div>
 
